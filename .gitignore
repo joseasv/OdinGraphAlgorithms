@@ -5,3 +5,7 @@ odin
 *.bin
 demo.bin
 libLLVM*.so*
+
+*
+!*.*
+!*/
