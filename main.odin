@@ -27,6 +27,25 @@ main :: proc() {
 	bFT->init(graphL, 0)
 	fmt.println("Path from 0 to 5", bFT->pathTo(5))
 
+	graphM := gt.GraphMatrix {
+		init         = gt.gMInit,
+		initWithTxt  = gt.gMInitWithTxt,
+		vertexCount  = gt.gMVertexCount,
+		addEdge      = gt.gMAddEdge,
+		adjacent     = gt.gMAdjacent,
+		showVertices = gt.gMShowVertices,
+	}
 
+	graphM->initWithTxt(os.args[1])
+	graphM->showVertices()
+
+	dFT := DFTraversal {
+		init      = dFTInit,
+		traversal = dFTTraversal,
+		pathTo    = dFTPathTo,
+	}
+
+	dFT->init(graphM, 0)
+	fmt.println("Path from 0 to 5", dFT->pathTo(5))
 }
 

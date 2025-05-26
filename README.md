@@ -17,7 +17,9 @@ There's only one package called graphtypes that will also contain the adjacenty 
 All graph algorithms will reside on the root folder. 
 
 ## Algorithms
-The breadth first and depth first traversals structs have these proc fields:
+
+### Basic depth and breadth first traversals
+The breadth first traversal (BFTraversal) struct uses a graph implemented with an adjacenty list and the depth first traversal  (DFTraversal) uses a graph implemented with an adjacency matrix. Both traversals have these proc fields:
 
  - init: Meant to be used after like a constructor method. Initializes the state and inmediately starts the traversal with an origin vertex.
  - traversal: Proc with the actual traversal code.
