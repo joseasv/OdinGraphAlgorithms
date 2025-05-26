@@ -1,0 +1,7 @@
+# - Linux/MacOS
+odin
+!odin/
+**/*.dSYM
+*.bin
+demo.bin
+libLLVM*.so*
