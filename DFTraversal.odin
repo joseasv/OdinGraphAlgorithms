@@ -4,20 +4,24 @@ import "core:fmt"
 import gt "graphstypes"
 
 DFTraversal :: struct {
-	visited:     [dynamic]bool,
-	distance:    [dynamic]int,
-	predecessor: [dynamic]int,
+	visited:     []bool,
+	distance:    []int,
+	predecessor: []int,
 	init:        proc(dFT: ^DFTraversal, graph: gt.GraphMatrix, origin: int),
 	traversal:   proc(dFT: ^DFTraversal, graph: gt.GraphMatrix, v: int),
 	pathTo:      proc(dFT: DFTraversal, v: int) -> [dynamic]int,
 }
 
 dFTInit :: proc(dFT: ^DFTraversal, graph: gt.GraphMatrix, origin: int) {
+
+	dFT.visited = make([]bool, graph->vertexCount())
+	dFT.distance = make([]int, graph->vertexCount())
+	dFT.predecessor = make([]int, graph->vertexCount())
+
 	for vertex in 0 ..< graph->vertexCount() {
-		append(&dFT.visited, false)
-		append(&dFT.distance, 0)
-		append(&dFT.predecessor, -1)
+		dFT.predecessor[vertex] = -1
 	}
+
 
 	dFT->traversal(graph, origin)
 }

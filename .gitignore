@@ -6,6 +6,4 @@ odin
 demo.bin
 libLLVM*.so*
 
-*
-!*.*
-!*/
+graphs

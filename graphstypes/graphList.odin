@@ -6,7 +6,7 @@ import "core:strconv"
 import "core:strings"
 
 GraphList :: struct {
-	adj:          [dynamic][dynamic]int,
+	adj:          [][dynamic]int,
 	directed:     bool,
 	init:         proc(graph: ^GraphList, vNum: int, isDirected: bool),
 	initWithTxt:  proc(graph: ^GraphList, filePath: string),
@@ -17,9 +17,8 @@ GraphList :: struct {
 }
 
 gLInit :: proc(graph: ^GraphList, vNum: int, isDirected: bool) {
-	for vertice in 0 ..< vNum {
-		append(&graph.adj, [dynamic]int{})
-	}
+
+	graph.adj = make([][dynamic]int, vNum)
 
 	graph.directed = isDirected
 }
@@ -45,9 +44,7 @@ gLInitWithTxt :: proc(graph: ^GraphList, filePath: string) {
 	}
 
 
-	for vertex in 0 ..< vNum {
-		append(&graph.adj, [dynamic]int{})
-	}
+	graph.adj = make([][dynamic]int, vNum)
 
 	for i in 2 ..< len(lines) {
 		//fmt.println(lines[i])

@@ -5,19 +5,21 @@ import "core:fmt"
 import gt "graphstypes"
 
 BFTraversal :: struct {
-	visited:     [dynamic]bool,
-	distance:    [dynamic]int,
-	predecessor: [dynamic]int,
+	visited:     []bool,
+	distance:    []int,
+	predecessor: []int,
 	init:        proc(bFT: ^BFTraversal, graph: gt.GraphList, v: int),
 	traversal:   proc(bFT: ^BFTraversal, graph: gt.GraphList, origin: int),
 	pathTo:      proc(bFT: BFTraversal, v: int) -> [dynamic]int,
 }
 
 bFTInit :: proc(bFT: ^BFTraversal, graph: gt.GraphList, v: int) {
+	bFT.visited = make([]bool, graph->vertexCount())
+	bFT.distance = make([]int, graph->vertexCount())
+	bFT.predecessor = make([]int, graph->vertexCount())
+
 	for vertex in 0 ..< graph->vertexCount() {
-		append(&bFT.visited, false)
-		append(&bFT.distance, 0)
-		append(&bFT.predecessor, -1)
+		bFT.predecessor[vertex] = -1
 	}
 
 	bFT->traversal(graph, v)

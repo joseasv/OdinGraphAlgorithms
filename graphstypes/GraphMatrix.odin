@@ -6,7 +6,7 @@ import "core:strconv"
 import "core:strings"
 
 GraphMatrix :: struct {
-	adj:          [dynamic][dynamic]int,
+	adj:          [][]int,
 	directed:     bool,
 	init:         proc(graph: ^GraphMatrix, vNum: int, directed: bool),
 	initWithTxt:  proc(graph: ^GraphMatrix, filePath: string),
@@ -17,12 +17,13 @@ GraphMatrix :: struct {
 }
 
 gMInit :: proc(graph: ^GraphMatrix, vNum: int, directed: bool) {
-	for row in 0 ..< vNum {
-		append(&graph.adj, [dynamic]int{})
-		for column in 0 ..< vNum {
-			append(&graph.adj[row], 0)
-		}
+	graph.adj = make([][]int, vNum)
+
+
+	for column in 0 ..< vNum {
+		graph.adj[column] = make([]int, vNum)
 	}
+
 
 	graph.directed = directed
 }
