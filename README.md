@@ -5,7 +5,7 @@ This is a repo for my graph algorithms implementations made with the Odin progra
 ## Run the code
 You need to install the Odin programming language first. Then, run this in the root folder:
 ```
-odin run . -- graphsTxts/dag.txt  
+odin run .
 ```
 
 ## Graph text file
