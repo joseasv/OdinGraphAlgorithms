@@ -24,3 +24,6 @@ The breadth first traversal (BFTraversal) struct uses a graph implemented with a
  - init: Meant to be used after like a constructor method. Initializes the state and inmediately starts the traversal with an origin vertex.
  - traversal: Proc with the actual traversal code.
  - pathTo: Returns a dynamic array with a path that leads to a given vertex
+ 
+### Kruskal Minimum Spanning Tree
+For the MST algorithms there's another graph implementation that handles edges's weight. This Kruskal algorithm implementation uses a simple weighted union find data structure without path compression.

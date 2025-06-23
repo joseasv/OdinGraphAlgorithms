@@ -2,7 +2,7 @@ package graphs
 
 import cq "core:container/queue"
 import "core:fmt"
-import gt "graphstypes"
+import gt "graphtypes"
 
 BFTraversal :: struct {
 	visited:     []bool,

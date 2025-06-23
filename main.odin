@@ -2,7 +2,7 @@ package graphs
 
 import "core:fmt"
 import "core:os"
-import gt "graphstypes"
+import gt "graphtypes"
 
 main :: proc() {
 
@@ -15,7 +15,7 @@ main :: proc() {
 		showVertices = gt.gLShowVertices,
 	}
 
-	graphL->initWithTxt(os.args[1])
+	graphL->initWithTxt("graphsTxts/dag.txt")
 	graphL->showVertices()
 
 	bFT := BFTraversal {
@@ -25,7 +25,7 @@ main :: proc() {
 	}
 
 	bFT->init(graphL, 0)
-	fmt.println("Path from 0 to 5", bFT->pathTo(5))
+	fmt.println("Breadth-first path from 0 to 5", bFT->pathTo(5))
 
 	graphM := gt.GraphMatrix {
 		init         = gt.gMInit,
@@ -36,7 +36,7 @@ main :: proc() {
 		showVertices = gt.gMShowVertices,
 	}
 
-	graphM->initWithTxt(os.args[1])
+	graphM->initWithTxt("graphsTxts/dag.txt")
 	graphM->showVertices()
 
 	dFT := DFTraversal {
@@ -46,6 +46,32 @@ main :: proc() {
 	}
 
 	dFT->init(graphM, 0)
-	fmt.println("Path from 0 to 5", dFT->pathTo(5))
+	fmt.println("Depth-first path from 0 to 5", dFT->pathTo(5))
+
+	fmt.println("\nWeighted graph")
+
+	wGraph := gt.WGraphList {
+		init         = gt.wGInit,
+		initWithTxt  = gt.wGInitWithTxt,
+		vertexCount  = gt.wGVertexCount,
+		addEdge      = gt.wGAddEdge,
+		adjacent     = gt.wGAdjacent,
+		showVertices = gt.wGShowVertices,
+		edges        = gt.wGEdges,
+	}
+
+	wGraph->initWithTxt("graphsTxts/undirected.txt")
+	wGraph->showVertices()
+
+	kMST := KruskalMST {
+		init      = kMSTInit,
+		printTree = kMSTPrintTree,
+	}
+
+	fmt.println("Kruskal")
+	kMST->init(wGraph)
+	kMST->printTree()
+
+
 }
 

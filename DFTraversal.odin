@@ -1,7 +1,7 @@
 package graphs
 
 import "core:fmt"
-import gt "graphstypes"
+import gt "graphtypes"
 
 DFTraversal :: struct {
 	visited:     []bool,

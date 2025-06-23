@@ -1,4 +1,4 @@
-package graphstypes
+package graphtypes
 
 import "core:fmt"
 import "core:os"
