@@ -12,7 +12,7 @@ odin run .
 The included graph text field represents a directed acyclic graph. The first line sets the total number of vertices and the second line is 0 if the graph is undirected or 1 if the graph is directed. The rest of the lines are a pair of numbers representing the graph's edges.
 
 ## graphtypes package
-There's only one package called graphtypes that will also contain the adjacenty matrix graph implementation. Currently, the package only contains the adjacency list implementation of graphs.
+There's only one package called graphtypes that contains the adjacenty matrix and adjacency list graph implementations.
 
 All graph algorithms will reside on the root folder. 
 
